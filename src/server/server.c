@@ -6,7 +6,7 @@
 /*   By: ldournoi <ldournoi@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:14:29 by ldournoi          #+#    #+#             */
-/*   Updated: 2022/04/22 19:24:46 by ldournoi         ###   ########.fr       */
+/*   Updated: 2022/04/22 20:48:46 by ldournoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 int	main(void)
 {
-	ft_printf("coucou");
+	int	pid;
+
+	pid = getpid();
+	ft_printf("%d", pid);
 	return (0);
 }
