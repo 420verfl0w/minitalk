@@ -10,7 +10,7 @@ LIB_DIR		:= -Llib/libft -Llib/ft_printf
 LIBS		:= -l:libft.a -l:libftprintf.a
 BIN_DIR		:= bin
 CC			:= gcc
-CFLAGS		:= -Wall -Werror -Wextra
+CFLAGS		:= -Wall -Werror -Wextra -ggdb
 TARGETS		:= client server
 
 all: $(LIBFT) $(FTPRNTF) $(TARGETS)

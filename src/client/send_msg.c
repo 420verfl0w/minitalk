@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   send_msg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldournoi <ldournoi@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 20:36:02 by ldournoi          #+#    #+#             */
-/*   Updated: 2022/04/23 19:26:08 by ldournoi         ###   ########.fr       */
+/*   Created: 2022/04/23 10:03:01 by ldournoi          #+#    #+#             */
+/*   Updated: 2022/04/23 19:56:59 by ldournoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# define _POSIX_SOURCE
-# define _DEFAULT_SOURCE
-# include <signal.h>
-# include <sys/wait.h>
-# include <errno.h>
-# include <error.h>
-# include <string.h>
-# include <time.h>
-# include <unistd.h>
+#include "../../inc/minitalk.h"
+#include "../../inc/libft.h"
+#include "../../inc/ft_printf.h"
 
-void		send_msg(pid_t pid, unsigned char *msg);
-void	handler(int sig, siginfo_t *siginfo, void *context);
-unsigned char	ft_extract_char(int arr[]);
-#endif
+void		send_msg(pid_t pid, unsigned char *msg)
+{
+	int				i;
+	int				j;
+	unsigned char	c;
+
+	i = 0;
+	while (msg[i])
+	{
+		j = 0;
+		c = msg[i];
+		while (j < 8)
+		{
+			if (c & 0b10000000)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			j++;
+			c <<= 1;
+			usleep(175);
+		}
+		i++;
+	}
+}
