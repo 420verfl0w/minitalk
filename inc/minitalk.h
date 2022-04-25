@@ -6,7 +6,7 @@
 /*   By: ldournoi <ldournoi@student.42angouleme.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 20:36:02 by ldournoi          #+#    #+#             */
-/*   Updated: 2022/04/23 19:26:08 by ldournoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:42:00 by ldournoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include <time.h>
 # include <unistd.h>
 
-void		send_msg(pid_t pid, unsigned char *msg);
-void	handler(int sig, siginfo_t *siginfo, void *context);
+void			send_msg(pid_t pid, unsigned char *msg);
+void			handler(int sig, siginfo_t *siginfo, void *context);
 unsigned char	ft_extract_char(int arr[]);
+
 #endif
